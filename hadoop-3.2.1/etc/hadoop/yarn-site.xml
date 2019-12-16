@@ -1,12 +1,25 @@
 <?xml version="1.0"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
 <configuration>
 	<property>
-		<name>hosts</name>
-		<value>0.0.0.0</value>
+		<name>yarnhosts</name>
+		<value>192.168.100.101</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.hostname</name>
-		<value>0.0.0.0</value>
+		<value>${yarnhosts}</value>
 	</property>
 	<property>
 		<name>yarn.resourcemanager.address</name>
@@ -52,11 +65,11 @@
 
 		<property>
 		<name>yarn.acl.enable</name>
-		<value>true</value>
+		<value>false</value>
 	</property>
 	<property>
 		<name>yarn.acl.reservation-enable</name>
-		<value>true</value>
+		<value>false</value>
 	</property>
 	<property>
 		<name>yarn.admin.acl</name>
@@ -80,7 +93,7 @@
 	</property>
 	<property>
 		<name>yarn.resourcemanager.webapp.cross-origin.enabled</name>
-		<value>true</value>
+		<value>false</value>
 	</property>
 
 	<!-- High Availability -->
@@ -90,7 +103,7 @@
 	</property>
 	<property>
 		<name>yarn.resourcemanager.proxy-user-privileges.enabled</name>
-		<value>true</value>
+		<value>false</value>
 	</property>
 
 	<!-- Node Manager -->
@@ -116,19 +129,19 @@
 	</property>
 	<property>
 		<name>yarn.nodemanager.webapp.cross-origin.enabled</name>
-		<value>true</value>
+		<value>false</value>
 	</property>
 	<property>
 		<name>yarn.nodemanager.amrmproxy.enabled</name>
-		<value>true</value>
+		<value>false</value>
 	</property>
 	<property>
 		<name>yarn.nodemanager.amrmproxy.address</name>
-		<value>0.0.0.0:8049</value>
+		<value>${yarn.nodemanager.hostname}:8049</value>
 	</property>
 	<property>
 		<name>yarn.nodemanager.webapp.cross-origin.enabled</name>
-		<value>true</value>
+		<value>false</value>
 	</property>
 
 	<property>
@@ -181,7 +194,7 @@
 	</property>
 	<property>
 		<name>yarn.web-proxy.address</name>
-		<value>${hosts}</value>
+		<value>${yarnhosts}</value>
 	</property>
 
 	<!-- Additional Configuration -->
@@ -224,11 +237,10 @@
 	</property>
 	<property>
 		<name>yarn.router.webapp.address</name>
-		<value>0.0.0.0:8089</value>
+		<value>${yarn.nodemanager.hostname}:8089</value>
 	</property>
 	<property>
 		<name>yarn.router.webapp.https.address</name>
-		<value>0.0.0.0:8091</value>
-	</property>
-
+		<value>${yarn.nodemanager.hostname}:8091</value>
+	</property>	
 </configuration>
