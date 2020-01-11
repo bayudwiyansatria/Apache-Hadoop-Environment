@@ -51,11 +51,11 @@
 
 # The java implementation to use. By default, this environment
 # variable is REQUIRED on ALL platforms except OS X!
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64/jre
+# export JAVA_HOME=${JAVA_HOME}
 
 # Location of Hadoop.  By default, Hadoop will attempt to determine
 # this location based upon its execution path.
-export HADOOP_HOME=/usr/local/hadoop
+# export HADOOP_HOME=
 
 # Location of Hadoop's configuration information.  i.e., where this
 # file is living. If this is not defined, Hadoop will attempt to
@@ -65,14 +65,14 @@ export HADOOP_HOME=/usr/local/hadoop
 # /etc/profile.d or equivalent.  Some options (such as
 # --config) may react strangely otherwise.
 #
-export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
+# export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
 
 # The maximum amount of heap to use (Java -Xmx).  If no unit
 # is provided, it will be converted to MB.  Daemons will
 # prefer any Xmx setting in their respective _OPT variable.
 # There is no default; the JVM will autoscale based upon machine
 # memory size.
-#export HADOOP_HEAPSIZE_MAX=-Xmx1g
+# export HADOOP_HEAPSIZE_MAX=
 
 # The minimum amount of heap to use (Java -Xms).  If no unit
 # is provided, it will be converted to MB.  Daemons will
@@ -184,7 +184,7 @@ export HADOOP_OS_TYPE=${HADOOP_OS_TYPE:-$(uname -s)}
 # Where (primarily) daemon log files are stored.
 # ${HADOOP_HOME}/logs by default.
 # Java property: hadoop.log.dir
-export HADOOP_LOG_DIR=${HADOOP_HOME}/logs
+# export HADOOP_LOG_DIR=${HADOOP_HOME}/logs
 
 # A string representing this instance of hadoop. $USER by default.
 # This is used in writing log and pid files, so keep that in mind!
@@ -195,11 +195,11 @@ export HADOOP_LOG_DIR=${HADOOP_HOME}/logs
 # export HADOOP_STOP_TIMEOUT=5
 
 # Where pid files are stored.  /tmp by default.
-export HADOOP_PID_DIR=/tmp
+# export HADOOP_PID_DIR=/tmp
 
 # Default log4j setting for interactive commands
 # Java property: hadoop.root.logger
-export HADOOP_ROOT_LOGGER=ERROR,console
+# export HADOOP_ROOT_LOGGER=INFO,console
 
 # Default log4j setting for daemons spawned explicitly by
 # --daemon option of hadoop, hdfs, mapred and yarn command.
@@ -227,7 +227,7 @@ export HADOOP_ROOT_LOGGER=ERROR,console
 # For example, it is common to use the same garbage collection settings
 # for all the daemons.  So one could define:
 #
-export HADOOP_GC_SETTINGS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps"
+# export HADOOP_GC_SETTINGS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps"
 #
 # .. and then use it as per the b option under the namenode.
 
@@ -287,7 +287,7 @@ export HADOOP_GC_SETTINGS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamp
 # export HDFS_NAMENODE_OPTS="-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -Xloggc:${HADOOP_LOG_DIR}/gc-rm.log-$(date +'%Y%m%d%H%M')"
 
 # this is the default:
-export HDFS_NAMENODE_OPTS="-Dhadoop.security.logger=INFO,RFAS -XX:+UseParallelGC"
+# export HDFS_NAMENODE_OPTS="-Dhadoop.security.logger=INFO,RFAS"
 
 ###
 # SecondaryNameNode specific parameters

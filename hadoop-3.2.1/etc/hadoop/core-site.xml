@@ -19,7 +19,7 @@
 <configuration>
     <property>
 	<name>hosts</name>
-	<value>192.168.100.101</value>
+	<value>192.168.99.101</value>
     </property>
     <property>
         <name>io.native.lib.available</name>
